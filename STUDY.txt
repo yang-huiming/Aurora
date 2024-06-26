@@ -1,0 +1,52 @@
+#include "..\"
+float BrightFuture(float parameter)
+#define progress         1.01
+#define retrogress       0.99
+float summation = 1;
+int State = 0;
+void main(void)
+{
+    if((Aliveflag = 1)&&(State = 1))
+    {
+        summation = BrightFuture();
+    }
+    if((Aliveflag = 1)&&(DayorNight = 1))
+    {
+        BrightFuture(summation);
+    }
+}
+float BrightFuture(float parameter)
+{
+    int count = 0, Studytimecount = 0;
+    State = 0;
+    if((Studingflag = 1)&&(State = 0))
+    {
+        count++;
+        if(count > 6000)             //100ms*6000=600s
+        {
+            Studytimecount++;
+            count = 0;
+        }
+        if(Studytimecount > 12)      //Two hours
+        {
+            parameter = parameter * progress; 
+            State = 1;
+        }
+    }
+    else if((Studingflag = 0)&&(State = 0))
+    {
+        count++;
+        if(count > 6000)
+        {
+            Studytimecount++;
+            count = 0;
+        }
+        if(Studytimecount > 72)     //Twelve hours
+        {
+            parameter = parameter * retrogress; 
+            State = 1;
+        }
+    }
+    return(parameter)
+}
+        
